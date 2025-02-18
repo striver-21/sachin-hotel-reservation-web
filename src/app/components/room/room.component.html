@@ -1,0 +1,20 @@
+<div *ngIf="errorMessage" class="alert alert-danger">
+  <strong>Error!</strong> {{ errorMessage }}
+</div>
+
+<div class="controls">
+  <input type="number" [(ngModel)]="numRooms" min="1" max="10" (focus)="clearErrorMessage()">
+  <button (click)="bookRooms()">Book</button>
+  <button (click)="resetBookings()">Reset</button>
+  <button (click)="randomBooking()">Random</button>
+</div>
+
+<div class="hotel-layout">
+  <div class="floor" *ngFor="let floor of rooms">
+    <div class="room" *ngFor="let room of floor"
+         [class.booked]="room.is_occupied"
+         [class.available]="!room.is_occupied">
+      <span class="room-number">{{ room.room_number }}</span>
+    </div>
+  </div>
+</div>

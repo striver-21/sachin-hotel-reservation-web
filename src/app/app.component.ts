@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RoomComponent } from './components/room/room.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [RoomComponent],
+  template: `<app-room></app-room>`,
 })
-export class AppComponent {
-  title = 'sachin-hotel-reservation-web';
-}
+export class AppComponent {}
